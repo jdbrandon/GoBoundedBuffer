@@ -1,4 +1,4 @@
 GoBoundedBuffer
 ===============
 
-Bounded Buffer implementation using go
+Bounded Buffer implementation using go. See documentation.
