@@ -76,8 +76,8 @@ func main(){
    os.Exit(0)
 }
 
-/* Problem: Need to create n Producer threads that each produce i
-   items. 
+/* Problem: Need to create producer threads that each produce a
+   number of items to place in the buffer. 
    Given 4 parameters:
       prods -- number of producer threads to create
       iters -- number of items each producer should place in buffer
