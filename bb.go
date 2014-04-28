@@ -34,8 +34,8 @@ const SIZE int = 200
 func main(){
 
    if len(os.Args) != 5 {
-      fmt.Printf("Error: invalid input\n")
-      fmt.Printf("Usage: %s <nprods> <proditers> <ncons> <coniters>\n", os.Args[0])
+      fmt.Fprintf(os.Stderr, "Error: invalid input\n")
+      fmt.Fprintf(os.Stderr, "Usage: %s <nprods> <proditers> <ncons> <coniters>\n", os.Args[0])
       os.Exit(1)
    }
 
