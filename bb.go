@@ -62,11 +62,11 @@ func main(){
   
    go producer(int(nprods), int(proditers), buf, pdone)
 
-   for i := 0; i < 2; i++ {
-      select {
-      case <-pdone:
-      case <-cdone:
-      }
+   select {
+   case <-pdone:
+      <-cdone
+   case <-cdone:
+      <-pdone
    }
 
    close(buf)
