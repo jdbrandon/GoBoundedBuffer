@@ -55,8 +55,8 @@ func main(){
 
    rand.Seed(time.Now().Unix())
    buf := make(chan rune, SIZE)
-   pdone := make(chan string)
-   cdone := make(chan string)
+   pdone := make(chan bool)
+   cdone := make(chan bool)
 
    go consumer(int(ncons), int(coniters), buf, cdone)
   
@@ -88,7 +88,7 @@ func main(){
    to the done channel.
 */
 
-func producer(prods int, iters int, buf chan<- rune, done chan string){
+func producer(prods int, iters int, buf chan<- rune, done chan<- bool){
    doneCount := make(chan bool)
    
    for i := 0; i < prods; i++ {
@@ -99,7 +99,7 @@ func producer(prods int, iters int, buf chan<- rune, done chan string){
    }
 
    close(doneCount)
-   done <- "done producing"
+   done <- true
 }
 
 /* Problem: Generate a random alphabetical rune and place it in
@@ -130,7 +130,7 @@ func produce(iters int, buf chan<- rune, done chan<- bool){
    to the done channel.
 */
 
-func consumer(cons int, iters int, buf <-chan rune, done chan string){
+func consumer(cons int, iters int, buf <-chan rune, done chan<- bool){
    doneCount := make(chan bool)
 
    for i := 0; i < cons; i++ {
@@ -141,7 +141,7 @@ func consumer(cons int, iters int, buf <-chan rune, done chan string){
    }
 
    close(doneCount)
-   done <- "done consuming"
+   done <- true
 }
 
 /* Problem: Consume a rune from a buffer a predetermined number 
