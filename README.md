@@ -10,3 +10,5 @@ am using goroutines for asynchronus processes.
 This project is based on an assignment 
 I received in an operating systems course at Central
 Michigan University.
+
+TODO: Create a package for buffer stuff. Modify documentation to comply with godoc specifications. Need to run gofmt on everything also.
