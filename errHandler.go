@@ -1,8 +1,8 @@
 package main
 
 import (
-   "fmt"
-   "os"
+	"fmt"
+	"os"
 )
 
 /* Problem: need to handle potential errors
@@ -10,9 +10,9 @@ import (
    relevant message to stderr and exit the program.
 */
 
-func processErr(err error){
-   if err != nil {
-      fmt.Fprintf(os.Stderr, "Error: %v\n", err)
-      os.Exit(3)
-   }
+func processErr(err error) {
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error: %v\n", err)
+		os.Exit(3)
+	}
 }
